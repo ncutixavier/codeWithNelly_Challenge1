@@ -42,16 +42,16 @@ function getAllUsers() {
                   modalSpinner.style.display = 'none';
                   for (let index = 0; index < json.length; index++) {
                     let template = `
-                                            <div class="post" post-id=${json[index].id}>
-                                                <div class="post-avatar">
-                                                    <img src="/assets/icons/post.png" alt="">
-                                                </div>
-                                                <div class="post-content">
-                                                    <h3>${json[index].title}</h3>
-                                                    <p>${json[index].body}</p>
-                                                </div>
-                                            </div>
-                                        `;
+                        <div class="post" post-id=${json[index].id}>
+                            <div class="post-avatar">
+                                <img src="https://ncutixavier.github.io/codeWithNelly_Challenge1/assets/icons/post.png" alt="">
+                            </div>
+                            <div class="post-content">
+                                <h3>${json[index].title}</h3>
+                                <p>${json[index].body}</p>
+                            </div>
+                        </div>
+                    `;
                     postsContent.innerHTML += template;
                   }
                 } else {
