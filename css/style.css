@@ -133,6 +133,7 @@ tr:hover {
 }
 
 .posts-container {
+    height: 90vh;
     width: 60%;
     margin: 3rem 0;
     background-color: #fff;
@@ -162,8 +163,8 @@ tr:hover {
     border-radius: 0.5rem;
 }
 
-.posts-content {
-    height: 70vh;
+.all-posts {
+    height: 75vh;
     overflow: auto;
 }
 

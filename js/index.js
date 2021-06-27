@@ -3,7 +3,7 @@ const spinner = document.querySelector('.loading-spinner');
 const modalSpinner = document.querySelector('.loader-spinner');
 const closeBtn = document.querySelector('.close-btn');
 const posts = document.querySelector('.posts');
-const postsContent = document.querySelector('.posts-content');
+const allPosts = document.querySelector('.all-posts');
 const postUser = document.querySelector('.post-user');
 const postNber = document.querySelector('.post-nber');
 
@@ -28,7 +28,9 @@ function getAllUsers() {
                 const userBtn = document.querySelectorAll('.getUserPost');
                 for (let index = 0; index < Array.from(userBtn).length; index++) {
                     userBtn[index].addEventListener('click', (e) => {
+                        allPosts.innerHTML = ''
                         posts.style.display = 'flex';
+                        modalSpinner.style.display = 'flex';
                         postUser.innerHTML = `${userBtn[index].parentElement.parentElement.firstElementChild.innerHTML}'s posts`;
                         let id =
                             userBtn[index].parentNode.parentNode.getAttribute('user-id');
@@ -38,9 +40,8 @@ function getAllUsers() {
                             .then((response) => response.json())
                             .then((json) => {
                                 if (json.length > 0) {
-                                    postsContent.innerHTML = ''
+                                    allPosts.innerHTML = ''
                                     postNber.innerHTML = `Posts: ${json.length}`;
-                                    modalSpinner.style.display = 'none';
                                     for (let index = 0; index < json.length; index++) {
                                         let template = `
                                             <div class="post" post-id=${json[index].id}>
@@ -53,7 +54,8 @@ function getAllUsers() {
                                                 </div>
                                             </div>
                                         `;
-                                        postsContent.innerHTML += template;
+                                        modalSpinner.style.display = 'none';
+                                        allPosts.innerHTML += template;
                                     }
                                 } else {
                                     modalSpinner.style.display = 'flex';
